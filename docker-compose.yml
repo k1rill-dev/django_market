@@ -3,6 +3,7 @@ services:
   web:
     build: ./
     command: gunicorn django_market.wsgi:application --bind 0.0.0.0:8000 --reload -w 4
+
     volumes:
       - ./:/usr/src/app/
     ports:
