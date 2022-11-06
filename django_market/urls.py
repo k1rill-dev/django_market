@@ -14,10 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Accounts API')
 
 urlpatterns = [
+    re_path(r'^$', schema_view),
     path('admin/', admin.site.urls),
-    path('', include('market.urls')),
+    path('market/api/v1/', include('market.urls')),
     path('account/api/v1/', include('accounts_api.urls'))
 ]

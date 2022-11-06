@@ -7,3 +7,4 @@ django-environ
 django-cors-headers
 djangorestframework
 Pillow
+django-rest-swagger
